@@ -1,0 +1,25 @@
+注意事项：
+1、目录名称请勿带点：. 。 列如：Services.proto
+----------------------------------------------------------------------------
+环境安装：
+1、下载安装python (https://www.python.org/downloads/) 。需要python版本大于等于3。可以安装目前最新稳定版本3.6
+2、安装grpc包：python -m  pip install grpcio
+3、安装yaml包：python -m  pip install pyyaml
+4、安装sql包：python -m pip install pyodbc
+5、clone 本工程，执行test(或rake/task)目录下的任意用例不报错即环境安装正确
+
+-----------------------------------------------------------------------------
+目录结构介绍：
+grpeTest        			#工程主目录
+  ├─conf				#配置文件、数据
+  ├─lib					#函数库
+  │  ├─public				#公共函数
+  │  └─ServicesProtoclo    	        #account相关服务函数库
+  │      ├─account			#account服务函数库
+  │      ├─csmember			#csmember服务函数库
+  ├─rake
+  │  └─task				#自动化工程任务启动程序
+  ├─report				#测试报告生成目录
+  ├─src					#proto源文件
+  └─test				#测试用例
+      └─account				#account相关用例

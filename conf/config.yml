@@ -1,0 +1,87 @@
+#每个参数冒号后面必须留一个空格
+####定义192.168.1.148测试环境相关信息
+# account_host: 192.168.1.148
+# sms_host: 192.168.1.148
+# email_host: 192.168.1.148
+# account_port: '45537'
+# sms_port: '10086'
+# email_port: '10087'
+# ####定义sql server相关信息
+# mssql_host: '192.168.1.148'
+# mssql_port: '1433'
+# db_user: 'test'
+# db_passwd: 'test'
+# FM_OS_DB: 'FM_OS_V3'
+
+# ###定义alibeta测试环境信息,备用。需要先链接上vpn
+account_host: 
+sms_host: 
+email_host: 
+account_port: '37225'  #alibeta 的account服务端口重启就会发生变化。连跑时可以打开alibeta的consul确认：http://10.1.0.4:8500
+sms_port: '10086'
+email_port: '10085'
+###定义sql server相关信息
+mssql_host: ''
+mssql_port: '52436'
+db_user: ''
+db_passwd: ''
+FM_OS_DB: ''
+
+#账号相关信息
+newPasswd: '000000'
+AccountEmail: 
+UserPasswd: '123456'
+IsMobileVerified: False
+NickName: account_test
+Gender: 0
+#AccountStatus: 0 新申请, 1 审核中, 2 正常, 3 锁定（此时交易员才可提取服务费）, 4 注销, 5 未激活,6 注销
+#邮箱注册的accountstatus为：5，需要激活。OA、手机注册的账号accountstatus为：2
+AccountStatus: 5
+UserType: 0
+EnableMemberApply: False
+
+#测试手机号
+AccountMobile: '4433'
+
+#邮件相关参数-============================
+#注册时发送验证码到邮箱使用的发件箱
+SendActivationEmail: 
+#注册时发送验证码邮件的标题
+Subject: '注册lowme验证码'
+#发送注册验证码邮件的ActivationCode
+ActivationCode: 'thisisactivationcode'
+
+###########################################################
+#测试报告相关参数
+#测试报告标题
+reportTitle: 'unt service automationTest reports'
+#测试报告副标题。在Status : ALL 下面
+reportFitTitle: '测试报告详情'
+#测试报告邮件内容
+reportMailContent: 'account service AutomationTest finished...'
+reportMailContent2: 'Detail：http://192.168.1.148:9527'
+reportFromAddr: ''
+reportToAddr: ['']
+reportSubject: '【wme】【GRPC】Account service AutomationTest reports-'
+reportSmtpServer: 'smtp.exmail.qq.com'
+reportPasswd: 'wme123'
+############################################################
+
+##开发环境的account服务，调试备用
+devserverIP: 192.168.0.59
+devaccount_port: '33431'
+##############################
+
+#############################################
+##########业务异常，错误码定义###############
+
+#修改密码为:空,超短字符的返回码
+UserInvalid_returnCode: '{"code":21001,"Status":400,"detail":"invalid userinfo"}'
+#查询不存在的用户的返回码
+UserNotExisted_returnCode: '{"code":22001,"Status":404,"detail":"user not existed"}'
+#已经存在的用户的返回码
+UserExisted_returnCode: '{"code":23001,"Status":409,"detail":"already existed"}'
+#新注册的用户还未激活
+UserNotActived_returnCode: '{"code":20104,"Status":403,"detail":"user is not actived"}'
+#无效的密码
+PasswdInvalid_returnCode: '{"code":21007,"Status":400,"detail":"invalid password"}'
